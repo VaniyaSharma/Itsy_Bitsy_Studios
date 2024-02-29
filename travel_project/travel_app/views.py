@@ -22,7 +22,7 @@ def user_login(request):
 
             return render(request, "index.html", {"first_name": first_name})
         else:
-            messages.error(request, "Wrong Credentials!!")
+            messages.error(request, "Wrong Credentials! Please sign-in again.")
             return redirect('home')
 
     return render(request, "registration/login.html")
