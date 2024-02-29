@@ -9,6 +9,8 @@ from django.contrib.auth import authenticate, login, logout
 def index(request):
     return render(request,'index.html')
 
+def user_sign_up(request):
+
 def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
