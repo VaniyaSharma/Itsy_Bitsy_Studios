@@ -4,21 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+    <style>
+        body{
+            background: lightblue;
+            font-family: "Calibri Light";
+
+        }
+         header {
+            background-color: #3498db;
+            color: white;
+             text-align: center;
+        }
+    footer {
+        background-color: #3498db;
+        color: #fff;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+}
+    </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Travel Website</h1>
-        <p>Welcome to our Homepage</p>
-    </header>
-    <p>Create an Account</p>
-    <a href="{% url 'sign-up' %}">Sign Up Here</a>
-    <p>Already have an account?</p>
-    <p><a href="{% url 'login' %}">Login Here</a></p>
+
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <h1>Travel Website</h1>
+        </div>
+        <h3>
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Featured</a>
+            <a href="#">Contact</a>
+        </div></h3>
+    </div>
+</header>
 
     <!-- Main Content -->
     <main>
+        <div class="user-actions">
+            <p>Create an Account</p>
+            <a href="{% url 'sign-up' %}">Sign Up Here</a>
+            <p>Already have an account?</p>
+            <p><a href="{% url 'login' %}">Login Here</a></p>
+        </div>
         <h2>About Us</h2>
         <p>
             This is a brief description of our website.
