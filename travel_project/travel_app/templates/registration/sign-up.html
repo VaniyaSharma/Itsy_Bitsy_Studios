@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Title</title>
+
+</head>
+<body>
+
+<h3>Ready to explore the world with us? Let's get you started!</h3>
+
+    <form method="post" action="{% url 'sign-up' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Please enter a username (use only letters and numbers)" Required>
+        </div>
+            <br>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email Address" Required>
+        </div>
+            <br>
+
+        <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter Your First Name" Required>
+        </div>
+            <br>
+
+        <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Your Last Name" Required>
+        </div>
+            <br>
+
+        <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="password" class="form-control" id="pass" name="pass" placeholder="Create Your Password" Required>
+        </div>
+            <br>
+
+        <div class="form-group">
+            <label for="confirmPass">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPass" name="confirmPass" placeholder="Confirm Your Password" Required>
+        </div>
+            <br>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+
+</body>
+</html>

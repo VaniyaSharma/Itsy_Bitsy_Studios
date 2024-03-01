@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel App Login</title>
+</head>
+<body>
+<h3>Login to access your account</h3>
+
+<form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" Required>
+        </div>
+            <br>
+
+        <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="password" class="form-control" id="pass" name="pass" placeholder="Enter your password" Required>
+        </div>
+            <br>
+
+        <button type="submit" class="btn btn-primary">Log in</button>
+    </form>
+
+
+</body>
+</html>
