@@ -7,7 +7,14 @@ Tripsee is a comprehensive web-based application designed to simplify the trip p
 
 ### Our Website:
 
-[Screenshot]
+### Home Page:
+![image](https://github.com/VaniyaSharma/Itsy_Bitsy_Studios/assets/124922063/a5247bbe-177a-4fb9-a6d9-c7d129934b52)
+
+### Login Page:
+![image](https://github.com/VaniyaSharma/Itsy_Bitsy_Studios/assets/124922063/bf4d4034-ff09-4769-8088-86b797296aab)
+
+### Sign Up Page:
+![image](https://github.com/VaniyaSharma/Itsy_Bitsy_Studios/assets/124922063/30d8ee3f-ad75-4c50-9418-b7336273cbf0)
 
 ### Key Features
 
