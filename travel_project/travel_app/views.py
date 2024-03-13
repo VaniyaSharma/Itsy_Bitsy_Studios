@@ -68,3 +68,6 @@ def user_login(request):
     return render(request, "registration/login.html")
 def contact_us (request):
     return render(request,'contact-us.html')
+
+def about_us (request):
+    return render(request, 'aboutus.html')
