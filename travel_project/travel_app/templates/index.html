@@ -1,50 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tripsee.ca</title>
-    <style>
-        body{
-            background: lightblue;
-            font-family: "Calibri Light";
+{% extends 'head-foot.html' %}
 
-        }
-         header {
-            background-color: #3498db;
-            color: white;
-             text-align: center;
-        }
-    footer {
-        background-color: #3498db;
-        color: #fff;
-        text-align: center;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-}
-    </style>
-</head>
-<body>
+{% block title %} Home | Tripsee {% endblock %}
 
-
-<header>
-    <div class="navbar">
-        <div class="logo">
-            <h1>Tripsee</h1>
-        </div>
-        <h3>
-        <div class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Expense tracking</a>
-            <a href="#">Search</a>
-            <a href="#">Login/Signup </a>
-        </div></h3>
-    </div>
-</header>
-
+{% block content %}
     <!-- Main Content -->
     <main>
         <div class="user-actions">
@@ -64,11 +22,5 @@
             Add images, text, and links to engage visitors.
         </p>
     </main>
+{% endblock %}
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Travel Website Name. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>

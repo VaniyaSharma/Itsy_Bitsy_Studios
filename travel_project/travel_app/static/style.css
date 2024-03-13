@@ -1,0 +1,23 @@
+html {
+    font-family: "Calibri Light";
+}
+
+body {
+    background: lightblue;
+}
+
+header {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+}
+
+footer {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
