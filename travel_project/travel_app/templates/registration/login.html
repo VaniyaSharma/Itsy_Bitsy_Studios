@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Travel App Login</title>
-    <style>
-        body {
-            background: lightblue;
-        }
-    </style>
-</head>
-<body>
+{% extends 'head-foot.html' %}
+
+{% block title %} Login | Tripsee {% endblock %}
+
+{% block content %}
 <h3>Login to access your account</h3>
 
 <form method="post" action="{% url 'login' %}">
@@ -28,7 +21,4 @@
 
         <button type="submit" class="btn btn-primary">Log in</button>
     </form>
-
-
-</body>
-</html>
+{% endblock %}
