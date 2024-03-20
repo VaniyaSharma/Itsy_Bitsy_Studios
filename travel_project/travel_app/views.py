@@ -87,3 +87,6 @@ def contact_us (request):
 
 def about_us (request):
     return render(request, 'aboutus.html')
+
+def itinerary (request):
+    return render(request, 'itinerary.html')
