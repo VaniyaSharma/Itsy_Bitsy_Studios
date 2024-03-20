@@ -4,10 +4,17 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
-# Create your views here.
+
+from django.db import models
+
+# Create your models here.
+
 
 def index(request):
     return render(request,'index.html')
+
+
+
 
 def user_sign_up(request):
     if request.method == "POST":
@@ -44,6 +51,8 @@ def user_sign_up(request):
         newuser.is_active = False
         newuser.save()
 
+
+
         return redirect('login')
 
     return render(request, "registration/sign-up.html")
@@ -54,6 +63,11 @@ def user_login(request):
         password = request.POST['pass']
 
         user = authenticate(username=username, password=password)
+
+        if user and not user.is_email_verified:
+            messages.add_message(request, messages.ERROR,
+                                 'Email is not verified, please check your email inbox')
+            return render(request, 'registration/login.html')
 
         if user is not None:
             login(request, user)
@@ -66,8 +80,17 @@ def user_login(request):
 
 
     return render(request, "registration/login.html")
+
+
 def contact_us (request):
     return render(request,'contact-us.html')
 
+def about_us (request):
+    return render(request, 'aboutus.html')
+
 def search (request):
     return render(request,'search.html')
+
+def itinerary (request):
+    return render(request, 'itinerary.html')
+

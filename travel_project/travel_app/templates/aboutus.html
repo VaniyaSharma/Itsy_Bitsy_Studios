@@ -1,0 +1,73 @@
+{% extends 'head-foot.html' %}
+{% load static %}
+{% block title %} About Us | Tripsee {% endblock %}
+
+
+{% block content %}
+  <main>
+    <link rel="stylesheet" href="{% static 'aboutusStyle.css' %}">
+    <div class="about_us">
+      <h2 style="text-align: center">About Us</h2>
+      <p style="text-align:center">At Tripsee you can search for different travel destinations and add them to your own personalized itinerary!</p>
+    </div>
+
+    <h2 style="text-align:center">Our Team</h2>
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img src="/static/images/contact_placeholder.jpg" style="width:350px" style="height:350px">
+          <div class="container">
+            <h2>Alisha Velji</h2>
+            <p class="title">Scrum Master</p>
+            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="/static/images/contact_placeholder.jpg" style="width:350px" style="height:350px">
+          <div class="container">
+            <h2>Vaniya Sharma</h2>
+            <p class="title">Product Owner</p>
+            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="/static/images/contact_placeholder.jpg" style="width:350px" style="height:350px">
+          <div class="container">
+            <h2>Karma Cappuccino</h2>
+            <p class="title">Developer</p>
+            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="/static/images/contact_placeholder.jpg" style="width:350px" style="height:350px">
+          <div class="container">
+            <h2>Rasha Ibrahim</h2>
+            <p class="title">Developer</p>
+            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <img src="/static/images/contact_placeholder.jpg" style="width:350px" style="height:350px">
+          <div class="container">
+            <h2>Ryan Gonzalez</h2>
+            <p class="title">Developer</p>
+            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+{% endblock %}
