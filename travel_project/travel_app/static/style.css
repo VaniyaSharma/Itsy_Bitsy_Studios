@@ -1,23 +1,139 @@
-html {
-    font-family: "Calibri Light";
+* {
+    font-family: "Roboto-bold", sans-serif;
+    margin: 0;
+    padding:0;
 }
 
-body {
-    background: lightblue;
+html{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgb(37, 57, 61), rgb(37, 57, 61,0.5)), url(images/background-home.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
 }
 
-header {
-    background-color: #3498db;
-    color: white;
-    text-align: center;
+.navbar{
+    height: 12%;
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    width: 150px;
+    cursor: pointer;
+
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li{
+   list-style: none;
+    display: inline-block;
+    margin-left: 60px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #e0d7c9;
+    font-size: 18px;
+}
+.row{
+    display: flex;
+    height: 88%;
+    align-items: center;
+}
+.col{
+    flex-basis: 50%;
+}
+
+h1 {
+    color: #e2d9cb;
+    font-size: 100px;
+}
+
+p{
+    color: #e2d9cb;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+button {
+    width: 180px;
+    color: #25393d;
+    font-size: 12px;
+    padding: 12px 0;
+    background: #e0d7c9;
+    border: 0;
+    border-radius: 20px;
+    outline:none;
+    margin-top: 30px;
+
+}
+.card-container{
+    flex-basis: 50%;
+    display: flex; /* Add display flex to align items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center align items horizontally */
+}
+
+.card {
+    width: 240px;
+    height: 280px;
+    display: flex; /* Align items vertically */
+    flex-direction: column; /* Stack items vertically */
+    border-radius: 10px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 15px;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.5s;
+}
+
+
+.card1{
+    background-image: url(images/image-1.jpg);
+}.card2{
+    background-image: url(images/image-2.jpg);
+}.card3{
+    background-image: url(images/image-3.jpg);
+}.card4{
+    background-image: url(images/image-4.jpg);
+}
+
+.card:hover{
+    transform: translateY(-10px);
+}
+
+h5{
+    font-size: 30px ;
+    color: #25393d;
+    text-shadow: #25393d;
 }
 
 footer {
-    background-color: #3498db;
-    color: white;
+    background-color: #26373f;
+    color: #e9e2d4;
+    padding: 20px;
     text-align: center;
     position: fixed;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
+}
+
+footer a {
+    color: #bb9b8f;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }

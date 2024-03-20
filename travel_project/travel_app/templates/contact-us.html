@@ -1,22 +1,32 @@
 {% extends 'head-foot.html' %}
 
 {% block title %} Contact Us | Tripsee {% endblock %}
-
+{% load static %}
 {% block content %}
 
-    <h1>Contact Us</h1>
+    <head>
+        <title>Contact Us - Tripsee</title>
+        <link rel="stylesheet" href="{% static 'contactusStyle.css' %}">
+    </head>
 
-    <form action="submit_form.php" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+    <body>
+        <section>
+            <div class = "container"></div>
+            <div class = "contactInfo"></div>
+            <div class = "contactForm"></div>
+        </section>
+        <form action="submit_form.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
 
-        <button type="submit">Submit</button>
-    </form>
+            <button type="submit">Submit</button>
+        </form>
+   </body>
 
 {% endblock %}
