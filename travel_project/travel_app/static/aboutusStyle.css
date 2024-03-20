@@ -1,0 +1,35 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  margin: auto;
+  float: left;
+  width: 26%;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about_us {
+  padding: 50px;
+  text-align: center;
+  background-color: #3498db;
+  opacity: 0.5;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: flex;
+  justify-content: center;
+}
