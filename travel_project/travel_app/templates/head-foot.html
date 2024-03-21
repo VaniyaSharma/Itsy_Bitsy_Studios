@@ -12,18 +12,21 @@
 
 <!-- Header -->
 <header>
-     <div class="navbar">
-        <div class="logo">
-            <h1>Tripsee</h1>
+     <div class="container">
+         <div class = "navbar">
+             <img src = "static/images/placeholder-logo-5.png" class = "logo">
+         <nav>
+             <ul>
+                 <li><a href="{% url 'index' %}">Home</a></li>
+                 <li><a href="{% url 'itinerary' %}">Trip Itinerary</a></li>
+                 <li><a href="{% url 'aboutus' %}">About Us</a>
+                 <li><a href="#">Expense tracking</a></li>
+                 <li><a href="#">Search</a></li>
+                 <li><a href="#">Login/Signup </a></li>
+             </ul>
+         </nav>
+
         </div>
-        <h3>
-        <div class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="{% url 'aboutus' %}">About Us</a>
-            <a href="#">Expense tracking</a>
-            <a href="#">Search</a>
-            <a href="#">Login/Signup </a>
-        </div></h3>
     </div>
 </header>
 

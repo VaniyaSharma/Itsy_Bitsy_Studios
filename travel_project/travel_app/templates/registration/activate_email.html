@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+
+Hi {{user.username}}
+
+Welcome to Tripsee! Your go-to trip planning tool!
+We are so excited to have you on-board :)) You're almost there just another step left.
+
+Please click on the link below to activate your email and get started on your trip planning:
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+
+{% endautoescape %}
