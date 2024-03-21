@@ -1,35 +1,30 @@
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
 .column {
-  margin: auto;
   float: left;
-  width: 26%;
+  width: 33.3%;
+  margin-right: 15px;
+  margin-bottom: 16px;
   padding: 0 8px;
 }
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
+.au-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  margin: 10px;
 }
 
-.about_us {
+.about {
   padding: 50px;
   text-align: center;
-  background-color: #3498db;
-  opacity: 0.5;
   color: white;
 }
 
-.container {
+.containerr {
   padding: 0 16px;
-
 }
 
-.container::after, .row::after {
+.containerr::after, .roww::after {
   content: "";
   clear: both;
-  display: flex;
-  justify-content: center;
+  display: table;
 }
+
+
