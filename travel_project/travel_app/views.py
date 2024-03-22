@@ -17,6 +17,7 @@ def index(request):
 
 
 def user_sign_up(request):
+
     if request.method == "POST":
         username = request.POST['username']
         first_name = request.POST['first_name']
