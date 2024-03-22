@@ -8,6 +8,18 @@
 
     <!-- Main Content -->
     <main>
+         {% if user.is_authenticated %}
+        <h3>Hello {{first_name}}!</h3>
+        <h4>You're successfully logged in.</h4>
+
+
+        <button type="submit"><a href="{% url 'logout' %}">Logout</a></button>
+        {% else %}
+        <button type="submit"><a href="{% url 'sign-up' %}">Register now</a></button>
+        <br/>
+        <br/>
+        <button type="submit"><a href="{% url 'login' %}">login</a></button>
+        {% endif %}
         <div class = "row">
             <div class = "col">
                 <h1>Tripsee</h1>

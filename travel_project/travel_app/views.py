@@ -51,6 +51,8 @@ def user_sign_up(request):
         newuser.is_active = False
         newuser.save()
 
+        messages.success(request,"Your account has been succesfully created!")
+
 
 
         return redirect('login')
@@ -76,11 +78,15 @@ def user_login(request):
             return render(request, "index.html", {"first_name": first_name})
         else:
             messages.error(request, "Wrong Credentials! Please try again :)")
-            return redirect('home')
+            return redirect('index')
 
 
     return render(request, "registration/login.html")
 
+def user_logout(request):
+    logout(request)
+    # Redirect to home or login page after logout
+    return redirect('index')
 
 def contact_us (request):
     return render(request,'contact-us.html')
