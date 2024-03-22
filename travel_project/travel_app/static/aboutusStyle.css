@@ -1,14 +1,18 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 .column {
   float: left;
-  width: 33.3%;
-  margin-right: 15px;
+  width: 20%;
+  margin-right: 5px;
   margin-bottom: 16px;
   padding: 0 8px;
 }
 
 .au-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  margin: 10px;
+  margin: 5px;
 }
 
 .about {
@@ -18,7 +22,7 @@
 }
 
 .containerr {
-  padding: 0 16px;
+  padding: 0 8px;
 }
 
 .containerr::after, .roww::after {

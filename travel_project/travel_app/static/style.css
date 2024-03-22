@@ -121,7 +121,8 @@ h5{
 footer {
     background-color: #26373f;
     color: #e9e2d4;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: center;
     position: fixed;
     left: 0;
@@ -136,4 +137,8 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+.foot-container{
+    padding-top: 100px;
 }
