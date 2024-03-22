@@ -66,10 +66,6 @@ def user_login(request):
 
         user = authenticate(username=username, password=password)
 
-        if user and not user.is_email_verified:
-            messages.add_message(request, messages.ERROR,
-                                 'Email is not verified, please check your email inbox')
-            return render(request, 'registration/login.html')
 
         if user is not None:
             login(request, user)
