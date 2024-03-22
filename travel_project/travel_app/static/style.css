@@ -15,39 +15,6 @@ html{
     box-sizing: border-box;
 }
 
-.navbar{
-    height: 12%;
-    display: flex;
-    align-items: center;
-}
-
-.logo{
-    width: 150px;
-    cursor: pointer;
-
-}
-
-nav{
-    flex: 1;
-    text-align: right;
-}
-
-nav ul li{
-   list-style: none;
-    display: inline-block;
-    margin-left: 60px;
-}
-
-nav ul li a{
-    text-decoration: none;
-    color: #e0d7c9;
-    font-size: 18px;
-}
-.row{
-    display: flex;
-    height: 88%;
-    align-items: center;
-}
 .col{
     flex-basis: 50%;
 }
@@ -118,27 +85,3 @@ h5{
     text-shadow: #25393d;
 }
 
-footer {
-    background-color: #26373f;
-    color: #e9e2d4;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}
-
-footer a {
-    color: #bb9b8f;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-.foot-container{
-    padding-top: 100px;
-}
