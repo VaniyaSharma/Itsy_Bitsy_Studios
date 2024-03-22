@@ -31,7 +31,13 @@ nav ul li a{
     text-decoration: none;
     color: #e0d7c9;
     font-size: 18px;
+    transition: 0.3s ease;
 }
+
+nav ul li a:hover{
+    color: #cd8586;
+}
+
 
 footer {
     background-color: #26373f;
