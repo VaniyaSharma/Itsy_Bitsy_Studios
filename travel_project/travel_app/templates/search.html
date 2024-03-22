@@ -1,7 +1,21 @@
 {% extends 'head-foot.html' %}
-
+{% load static %}
 {% block title %} Search | Tripsee {% endblock %}
 
 {% block content %}
 
+<head>
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <title>Search Page</title>
+     <link rel="stylesheet" href="{% static 'searchStyle.css' %}">
+</head>
+
+<body>
+    <div class="container2">
+        <form action="https://www.google.com/search" method="get" class="search-bar">
+            <input type="text" placeholder="where to?" name="q">
+            <button type="submit"><img src="images/search.png"></button>
+        </form>
+    </div>
+</body>
 {% endblock %}
