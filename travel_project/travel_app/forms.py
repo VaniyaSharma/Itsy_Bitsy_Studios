@@ -1,3 +1,12 @@
 from django import forms
-from .models import Day, Event
+from .models import Event
+
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = ['title', 'time', 'description', 'link']
+        widgets = {
+            'time': forms.TimeInput(attrs={'type': 'time'})
+        }
+
 

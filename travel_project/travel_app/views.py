@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .models import Day
+from .forms import EventForm
 
 
 from django.db import models
@@ -96,5 +97,19 @@ def search (request):
     return render(request,'search.html')
 
 def itinerary (request):
-    return render(request, 'itinerary.html')
+    form = EventForm()
+    return render(request, 'itinerary.html', {'form': form})
+
+def create_event(request, day_id):
+    day = get_object_or_404(Day, pk=day_id)
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.day = day
+            event.save()
+            return redirect('day_detail', day_id=day_id)
+    else:
+        form = EventForm()
+    return render(request, 'itinerary.html', {'form': form})
 

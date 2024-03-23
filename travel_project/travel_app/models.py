@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Day(models.Model):
     date = models.DateField()
 
