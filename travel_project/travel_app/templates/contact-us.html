@@ -4,29 +4,38 @@
 {% load static %}
 {% block content %}
 
-    <head>
-        <title>Contact Us - Tripsee</title>
-        <link rel="stylesheet" href="{% static 'contactusStyle.css' %}">
+    <head><title>Contact Us - Tripsee</title>
+    <link rel="stylesheet" href="{% static 'contactStyle.css' %}">
     </head>
 
     <body>
-        <section>
-            <div class = "container"></div>
-            <div class = "contactInfo"></div>
-            <div class = "contactForm"></div>
-        </section>
-        <form action="submit_form.php" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-
-            <button type="submit">Submit</button>
-        </form>
-   </body>
+        <section class ="contact">
+            <div class = "container contact">
+                <h2>Contact Us</h2>
+                <div class = "contact-wrapper">
+                    <div class = "contact-form">
+                        <h3>Send us a message</h3>
+                        <form>
+                            <div class = "form-group">
+                                <input type = "text" name = "name" placeholder="Your Name">
+                            </div>
+                            <div class = "form-group">
+                                <input type = "email" name = "email" placeholder="Your Email">
+                            </div>
+                            <div class = "form-group">
+                                <textarea name = "message" placeholder="Your Message"></textarea>
+                            </div>
+                            <button type = "submit">Send Message</button>
+                        </form>
+                    </div>
+                    <div class = "contact-info">
+                        <h3>Contact Information</h3>
+                        <p>+1 123 456 789</p>
+                        <p>info@Tripsee.ca</p>
+                        <p>Carleton University, Ottawa, ON, Canada</p>
+                    </div>
+                </div>
+            </div>
+      </body>
 
 {% endblock %}

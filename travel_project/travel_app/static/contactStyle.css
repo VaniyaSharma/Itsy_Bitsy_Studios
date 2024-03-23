@@ -1,0 +1,123 @@
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+html{
+    background-image: linear-gradient(rgb(37, 57, 61), rgb(37, 57, 61,0.5)), url(images/background-home.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+}
+
+
+.contact{
+    max-width : 200vh;
+    min-height: 100vh;
+    background-color: rgba(229, 248, 246, 0.3);
+    padding:50px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.container contact{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.container h2{
+    font-size: 70px;
+    margin-bottom: 100px;
+    color: #e5e0d8;
+    align-self: center;
+}
+
+.contact-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 50px;
+
+}
+
+.contact-form{
+     text-align: left;
+
+}
+
+.contact-form h3{
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #26373f;
+}
+
+.form-group{
+    margin-bottom: 30px;
+}
+
+
+input, textarea{
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    border-radius: 8px ;
+    border: none;
+    background-color: #e7e2da;
+    color: #26373f;
+
+}
+
+input:focus, textarea:focus{
+    outline: none;
+    box-shadow: 0 0 8px #d1724e;
+}
+
+button {
+    width: 50%;
+    color: #25393d;
+    font-size: 12px;
+    padding: 12px 0;
+    background: #e5e0d8;
+    border: 0;
+    border-radius: 8px;
+    outline:none;
+    margin-top: 30px;
+    transition: 0.3s ease;
+}
+
+button:hover{
+    background-color: #cc886f;
+    color: #e0d7c9;
+}
+.contact-info{
+    text-align: left;
+
+}
+
+.contact-info h3{
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #26373f;
+}
+.contact-info p{
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: "Roboto-bold", sans-serif;
+    color: #e0d7c9;
+}
+.contact-info p:hover{
+    text-decoration: underline;
+    color: #25393d;
+}
+@media screen and (max-width: 768px){
+    .container contact{
+        padding:20px;
+    }
+    .contact-wrapper{
+        grid-template-columns: 1fr ;
+    }
+
+}
