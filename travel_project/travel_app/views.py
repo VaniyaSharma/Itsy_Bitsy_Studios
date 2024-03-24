@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db import models
-from .models import Day
+from .models import Trip, Itinerary, Event
 from .forms import EventForm, CreateUserForm
 
 def index(request):
@@ -35,22 +35,34 @@ def contact_us(request):
 def about_us(request):
     return render(request, 'aboutus.html')
 
-def itinerary (request):
-    form = EventForm()
-    return render(request, 'itinerary.html', {'form': form})
+def itinerary_list (request):
+    return render(request, 'itinerary/itinerary_list.html')
 
-def create_event(request, day_id):
-    day = get_object_or_404(Day, pk=day_id)
+def create_event(request, trip_id):
+    trip = Trip.objects.get(id=trip_id)
     if request.method == 'POST':
         form = EventForm(request.POST)
         if form.is_valid():
+            day_number = int(request.POST['day_number'])
             event = form.save(commit=False)
-            event.day = day
             event.save()
-            return redirect('day_detail', day_id=day_id)
+            itinerary, created = Itinerary.objects.get_or_create(trip=trip, day_number=day_number)
+            itinerary.events.add(event)
+            return redirect('itinerary_list')
     else:
         form = EventForm()
-    return render(request, 'itinerary.html', {'form': form})
+    return render(request, 'itinerary/create_event.html', {'form': form, 'trip': trip})
+
+def edit_event(request, event_id):
+    event - Event.objects.get(id=event_id)
+    if request.method == 'POST':
+        form = EventForm(request.POST, instance=event)
+        if form.is_valid():
+            form.save()
+            return redirect('itinerary_list')
+    else:
+        form = EventForm(instance=event)
+    return render(request, 'itinerary/edit_event.html', {'form': form, 'event': event})
 
 def search(request):
     return render(request, 'search.html')

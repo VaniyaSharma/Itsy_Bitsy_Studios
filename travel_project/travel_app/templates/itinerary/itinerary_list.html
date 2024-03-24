@@ -1,0 +1,23 @@
+{% extends 'head-foot.html' %}
+
+{% block title %} Trip Itinerary | Tripsee {% endblock %}
+
+{% block content %}
+<h1>My Trips</h1>
+<ul>
+    {% for trip in trips %}
+    <li>{{ trip.name }} - {{ trip.start_date }} to {{ trip.end_date }}</li>
+    <ul>
+        {% for itinerary in trip.itinerary_set.all %}
+        <li>Day {{ itinerary.day_number }}</li>
+        <ul>
+            {% for event in itinerary.events.all %}
+            <li>{{ event.event_title }} - {{ event.time }} - {{ event.description }} - {{ event.link }}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_event' trip.id %}">Create Event</a>
+    {% endfor %}
+</ul>
+{% endblock %}
