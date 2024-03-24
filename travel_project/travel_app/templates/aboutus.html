@@ -1,76 +1,99 @@
 {% extends 'head-foot.html' %}
-{% load static %}
+
 {% block title %} About Us | Tripsee {% endblock %}
 
-
 {% block content %}
-  <main>
+{% load static %}
     <link rel="stylesheet" href="{% static 'aboutusStyle.css' %}">
-    <div class="about">
-      <h2 style="text-align: center; color:white" >About Us</h2><br>
-      <p style="text-align:center" style="color:white">At Tripsee you can search for different travel destinations and add them to your own personalized itinerary!</p>
-      <br><br>
-    </div>
 
-    <h2 style="text-align:center; color:white">Our Team</h2>
-    <br>
-    <div class="roww">
-      <div class="column">
-        <div class="au-card">
-          <img src="/static/images/contact_placeholder.jpg" style="width:380px" style="height:380px">
-          <div class="containerr">
-            <h2 style="color:white">Alisha Velji</h2>
-            <p class="title">Scrum Master</p>
-            <p>I like art, iced coffee and Taylor Swift.</p><br>
-          </div>
+    <main>
+        <div class="abtus-container">
+            <div class="abtus">
+                <h2 class="team" style=" text-align: center; color: white">About Us</h2> <br>
+                <p style="text-align: center; colour: black">At Tripsee you can browse different destinations and add them to your own personalized travel itinerary!</p>
+                <br>
+            </div>
         </div>
-      </div>
 
-      <div class="column">
-        <div class="au-card">
-          <img src="/static/images/contact_placeholder.jpg" style="width:380px" style="height:380px">
-          <div class="containerr">
-            <h2 style="color:white">Vaniya Sharma</h2>
-            <p class="title">Product Owner</p>
-            <p>Some text that describes me lorem ipsum ipsum lorem.</p><br>
-          </div>
+        <br>
+        <h2 style="text-align: center; color: white">~~~~~~~~~~~~~~~~୨୧~~~~~~~~~~~~~~~~</h2> <br><br>
+
+        <h2 style="text-align:center; color: white">Our Team</h2><br>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img src="/static/images/alisha.jpg" style="width:320px" style="height: 320px">
+                    <div class="container">
+                        <br>
+                        <h2>Alisha Velji</h2>
+                        <p class="title">Scrum Master</p>
+                        <br>
+                        <p>I like art, iced coffee and Taylor Swift.</p><br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img src="/static/images/vaniya.jpg" style="width:320px" style="height: 320px">
+                    <div class="container">
+                        <br>
+                        <h2>Vaniya Sharma</h2>
+                        <p class="title">Product Owner</p>
+                        <br>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <br>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="column">
-        <div class="au-card">
-          <img src="/static/images/contact_placeholder.jpg" style="width:380px" style="height:380px">
-          <div class="containerr">
-            <h2 style="color:white">Karma Cappuccino</h2>
-            <p class="title">Developer</p>
-            <p>Some text that describes me lorem ipsum ipsum lorem.</p><br>
-          </div>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img src="/static/images/karma.jpg" style="width:320px" style="height: 320px">
+                    <div class="container">
+                        <br>
+                        <h2>Karma Cappuccino</h2>
+                        <p class="title">Developer</p>
+                        <br>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img src="/static/images/rasha.jpg" style="width:320px" style="height: 320px">
+                    <div class="container">
+                        <br>
+                        <h2>Rasha Ibrahim</h2>
+                        <p class="title">Developer</p>
+                        <br>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img src="/static/images/contact_placeholder.jpg" style="width:320px" style="height: 320px">
+                    <div class="container">
+                        <br>
+                        <h2>Ryan Gonzalez</h2>
+                        <p class="title">Developer</p>
+                        <br>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <br>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </main>
 
-      <div class="column">
-        <div class="au-card">
-          <img src="/static/images/contact_placeholder.jpg" style="width:380px" style="height:380px">
-          <div class="containerr">
-            <h2 style="color:white">Rasha Ibrahim</h2>
-            <p class="title">Developer</p>
-            <p>Some text that describes me lorem ipsum ipsum lorem.</p><br>
-          </div>
-        </div>
-      </div>
 
-      <div class="column">
-        <div class="au-card">
-          <img src="/static/images/contact_placeholder.jpg" style="width:380px" style="height:380px">
-          <div class="containerr">
-            <h2 style="color:white">Ryan Gonzalez</h2>
-            <p class="title">Developer</p>
-            <p>Some text that describes me lorem ipsum ipsum lorem.</p><br>
-          </div>
-        </div>
-      </div>
-    </div>
 
-  </main>
 {% endblock %}
-
