@@ -54,12 +54,12 @@ def contact_us(request):
 def about_us(request):
     return render(request, 'aboutus.html')
 
-@login_required
+@login_required(login_url='login')
 def itinerary_list(request):
     trips = Trip.objects.filter(user=request.user)
     return render(request, 'itinerary/itinerary_list.html', {'trips': trips})
 
-@login_required
+@login_required(login_url='login')
 def trip_details(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
     days = []
@@ -68,7 +68,7 @@ def trip_details(request, trip_id):
         days.append({'number': day_number, 'date': trip.start_date + timedelta(days=day_number - 1), 'events': events})
     return render(request, 'itinerary/trip_details.html', {'trip': trip, 'days': days})
 
-@login_required
+@login_required(login_url='login')
 def create_trip(request):
     if request.method == 'POST':
         form = TripForm(request.POST)
@@ -81,7 +81,7 @@ def create_trip(request):
         form = TripForm()
     return render(request, 'itinerary/create_trip.html', {'form': form})
 
-@login_required
+@login_required(login_url='login')
 def create_event(request, trip_id):
     trip = Trip.objects.get(pk=trip_id)
     if request.method == 'POST':
@@ -95,6 +95,7 @@ def create_event(request, trip_id):
         form = EventForm(trip=trip)
     return render(request, 'itinerary/create_event.html', {'form': form})
 
+@login_required(login_url='login')
 def edit_event(request, event_id):
     event = Event.objects.get(id=event_id)
     trip = event.trip
