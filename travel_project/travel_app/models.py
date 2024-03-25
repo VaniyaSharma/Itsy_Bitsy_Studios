@@ -8,6 +8,10 @@ class Trip(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
 
+    @property
+    def duration(self):
+        return (self.end_date - self.start_date).days + 1
+
 class Event(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     day_number = models.IntegerField()

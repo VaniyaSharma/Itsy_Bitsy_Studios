@@ -11,8 +11,9 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('aboutus/', views.about_us, name="aboutus"),
     path('itinerary/itinerary_list', views.itinerary_list, name="itinerary_list"),
-    path('trip/<int:trip_id>/', views.trip_details, name='trip_detail'),
+    path('trip/<int:trip_id>/', views.trip_details, name='trip_details'),
     path('create_trip/', views.create_trip, name='create_trip'),
-    path('trip/<int:trip_id>/create_event/', views.create_event, name='create_event')
+    path('trip/<int:trip_id>/create_event/', views.create_event, name='create_event'),
+    path('trip/edit_event/<int:event_id>/', views.edit_event, name='edit_event'),
 ]
 

@@ -3,14 +3,28 @@
 {% block title %} Trip Itinerary | Tripsee {% endblock %}
 
 {% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'itinerary.css' %}">
 
 <h1>{{ trip.name }}</h1>
 <p>Duration: {{ trip.start_date }} to {{ trip.end_date }}</p>
 
+
 {% for day in days %}
-    <h2>Day {{ day.number }}: {{ day.date }}</h2>
-    {% for event in day.events %}
-        <p>{{ event.event_title }} - {{ event.time }}</p>
-    {% endfor %}
-<a href="{% url 'create_event' trip.id %}">Add Event</a>
+    <div class="day-container">
+      <h2>Day {{ day.number }}: {{ day.date }}</h2>
+        {% for event in day.events %}
+            <div class="event-container">
+                <p class="event-details">{{ event.event_title }} - {{ event.time }}</p>
+                <form action="{% url 'edit_event' event.id %}" method="get">
+                    <button type="submit">
+                        <img src="{% static 'images/edit-icon.png' %}" alt="Edit">
+                    </button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
+<a href="{% url 'create_event' trip.id %}">Add Event</a><br>
+<a href="{% url 'itinerary_list' %}" class="go-back">Go Back to Trip List!</a>
 {% endblock %}

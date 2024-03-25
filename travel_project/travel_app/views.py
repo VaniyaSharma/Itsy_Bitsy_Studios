@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from datetime import timedelta
 from django.db import models
 from .models import Trip, Event
 from .forms import TripForm, EventForm, CreateUserForm
@@ -56,7 +57,7 @@ def about_us(request):
 @login_required
 def itinerary_list(request):
     trips = Trip.objects.filter(user=request.user)
-    return render(request, 'itinerary/itinerary_list.html')
+    return render(request, 'itinerary/itinerary_list.html', {'trips': trips})
 
 @login_required
 def trip_details(request, trip_id):
@@ -82,28 +83,29 @@ def create_trip(request):
 
 @login_required
 def create_event(request, trip_id):
-    trip = Trip.objects.get(id=trip_id)
+    trip = Trip.objects.get(pk=trip_id)
     if request.method == 'POST':
-        form = EventForm(request.POST)
+        form = EventForm(request.POST, trip=trip)
         if form.is_valid():
             event = form.save(commit=False)
             event.trip = trip
             event.save()
             return redirect('trip_details', trip_id=trip_id)
     else:
-        form = EventForm()
+        form = EventForm(trip=trip)
     return render(request, 'itinerary/create_event.html', {'form': form})
 
 def edit_event(request, event_id):
-    event - Event.objects.get(id=event_id)
+    event = Event.objects.get(id=event_id)
+    trip = event.trip
     if request.method == 'POST':
-        form = EventForm(request.POST, instance=event)
+        form = EventForm(request.POST, trip=trip, instance=event)
         if form.is_valid():
             form.save()
-            return redirect('itinerary_list')
+            return redirect('trip_details', trip_id=trip.id)
     else:
-        form = EventForm(instance=event)
-    return render(request, 'itinerary/edit_event.html', {'form': form, 'event': event})
+        form = EventForm(trip=trip, instance=event)
+    return render(request, 'itinerary/edit_event.html', {'form': form, 'event': event, 'trip': trip})
 
 def search(request):
     return render(request, 'search.html')
