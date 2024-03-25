@@ -1,0 +1,21 @@
+h1 {
+  font-family: "Roboto-bold", sans-serif;
+}
+
+img {
+  width: 25px;
+}
+
+.day-container {
+
+}
+
+.event-container {
+  display: flex;
+  align-items: center;
+}
+
+.event-details {
+  margin-right: 10px;
+}
+

@@ -1,0 +1,16 @@
+{% extends 'head-foot.html' %}
+
+{% block title %} Trip Itinerary | Tripsee {% endblock %}
+
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'itinerary.css' %}">
+
+<h1>Create Event for {{ trip.name }}</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Event</button>
+</form>
+{% endblock %}

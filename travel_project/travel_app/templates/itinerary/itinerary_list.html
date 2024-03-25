@@ -1,0 +1,16 @@
+{% extends 'head-foot.html' %}
+
+{% block title %} Trip Itinerary | Tripsee {% endblock %}
+
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'itinerary.css' %}">
+
+    <h1>My Trips</h1>
+    <ul>
+        {% for trip in trips %}
+            <li><a href="{% url 'trip_details' trip.id %}">{{ trip.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_trip' %}">Create New Trip</a>
+{% endblock %}
