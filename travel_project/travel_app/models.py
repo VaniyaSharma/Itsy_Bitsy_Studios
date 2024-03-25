@@ -19,3 +19,10 @@ class Event(models.Model):
     time = models.TimeField()
     description = models.TextField(blank=True, null=True)
     link = models.URLField(blank=True, null=True)
+
+class Location(models.Model):
+    name = models.CharField(max_length=150, null=True)
+    description = models.TextField(max_length=2000)
+
+    def __str__(self):
+        return self.name

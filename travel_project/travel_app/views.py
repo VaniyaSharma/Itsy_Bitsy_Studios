@@ -1,12 +1,12 @@
 from django.core.mail import send_mail
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from datetime import timedelta
 from django.db import models
-from .models import Trip, Event
+from .models import Trip, Event, Location
 from .forms import TripForm, EventForm, CreateUserForm
 
 def index(request):
@@ -110,3 +110,23 @@ def edit_event(request, event_id):
 
 def search(request):
     return render(request, 'search.html')
+
+def location_detail_with_id(request, location_id):
+    location = get_object_or_404(Location, id=location_id)
+
+    return render(request, 'location_details.html',{'location': location})
+
+def search_location(request):
+    locations = Location.objects.all()
+    query = request.GET.get('query', '')
+    if query.strip():  
+        locations = locations.filter(name__icontains=query)
+    return render(request, 'search.html', {'locations': locations})
+
+def get_location_id_from_query(query):
+    try:
+        location = Location.objects.get(name__icontains=query)
+        return location.id
+    except Location.DoesNotExist:
+        return None
+
