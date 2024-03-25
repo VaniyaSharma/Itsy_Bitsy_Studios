@@ -3,12 +3,10 @@
 {% block title %} Trip Itinerary | Tripsee {% endblock %}
 
 {% block content %}
-
-<h2> *User* Trip Itinerary!</h2>
-
-<form method="post">
+<h1>Create New Trip</h1>
+<form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">save event</button>
+    <button type="submit">Create Trip</button>
 </form>
 {% endblock %}
