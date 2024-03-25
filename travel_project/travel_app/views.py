@@ -1,16 +1,21 @@
-from django.core.mail import send_mail
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from datetime import timedelta
-from django.db import models
+
 from .models import Trip, Event
 from .forms import TripForm, EventForm, CreateUserForm
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
+
 
 def index(request):
     return render(request, 'index.html')
+
 
 def user_sign_up(request):
     form = CreateUserForm()
@@ -28,6 +33,10 @@ def user_sign_up(request):
 
     return render(request, "registration/sign-up.html", context)
 
+
+
+
+
 def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -37,27 +46,45 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
+
+            template = render_to_string('registration/email.html', {'name': request.user.username})
+
+            email = EmailMessage(
+                'Thank you for registering with Tripsee!',
+                template,
+                settings.EMAIL_HOST_USER,
+                [request.user.email],
+            )
+            email.fail_silently = False
+            email.send()
+
             return redirect('index')
+
         else:
             messages.info(request, 'Username or password is incorrect')
             return redirect('login')
 
     return render(request, "registration/login.html")
 
+
 def user_logout(request):
     logout(request)
     return redirect('login')
 
+
 def contact_us(request):
     return render(request, 'contact-us.html')
 
+
 def about_us(request):
     return render(request, 'aboutus.html')
+
 
 @login_required(login_url='login')
 def itinerary_list(request):
     trips = Trip.objects.filter(user=request.user)
     return render(request, 'itinerary/itinerary_list.html', {'trips': trips})
+
 
 @login_required(login_url='login')
 def trip_details(request, trip_id):
@@ -67,6 +94,7 @@ def trip_details(request, trip_id):
         events = Event.objects.filter(trip=trip, day_number=day_number)
         days.append({'number': day_number, 'date': trip.start_date + timedelta(days=day_number - 1), 'events': events})
     return render(request, 'itinerary/trip_details.html', {'trip': trip, 'days': days})
+
 
 @login_required(login_url='login')
 def create_trip(request):
@@ -80,6 +108,7 @@ def create_trip(request):
     else:
         form = TripForm()
     return render(request, 'itinerary/create_trip.html', {'form': form})
+
 
 @login_required(login_url='login')
 def create_event(request, trip_id):
@@ -95,6 +124,7 @@ def create_event(request, trip_id):
         form = EventForm(trip=trip)
     return render(request, 'itinerary/create_event.html', {'form': form})
 
+
 @login_required(login_url='login')
 def edit_event(request, event_id):
     event = Event.objects.get(id=event_id)
@@ -107,6 +137,7 @@ def edit_event(request, event_id):
     else:
         form = EventForm(trip=trip, instance=event)
     return render(request, 'itinerary/edit_event.html', {'form': form, 'event': event, 'trip': trip})
+
 
 def search(request):
     return render(request, 'search.html')
