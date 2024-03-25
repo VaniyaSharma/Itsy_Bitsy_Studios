@@ -1,34 +1,62 @@
-*, *:before, *:after {
-  box-sizing: inherit;
+html {
+  box-sizing: border-box;
+  font-family: "Roboto-bold", sans-serif;
+  padding-left: 8%;
+  padding-right: 8%;
+
 }
 
+body {
+  background-image: linear-gradient(rgba(37, 57, 61,.75), rgba(255,255,255,.25)), url("images/abtus-background.jpg");
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+}
+
+
 .column {
-  float: left;
-  width: 20%;
+  flex-basis: calc(20% - 16px);
   margin-right: 5px;
   margin-bottom: 16px;
   padding: 0 8px;
 }
 
-.au-card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  margin: 5px;
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  background-color: ghostwhite;
+  margin: 8px;
 }
 
-.about {
-  padding: 50px;
+.abtus {
+  padding: 20px;
   text-align: center;
   color: white;
 }
 
-.containerr {
-  padding: 0 8px;
+.container {
+  padding: 0 16px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
-.containerr::after, .roww::after {
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container::after, .row::after {
   content: "";
   clear: both;
   display: table;
+}
+
+.title {
+  color: #cd5b45;
+}
+
+.team{
+  text-decoration: underline;
 }
 
 

@@ -18,17 +18,34 @@ def user_sign_up(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user)
+
+            return redirect('login')
 
     context = {'form': form}
 
     return render(request, "registration/sign-up.html", context)
 
 def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+        else:
+            messages.info(request, 'Username or password is incorrect')
+            return redirect('login')
+
     return render(request, "registration/login.html")
 
 def user_logout(request):
     logout(request)
-    return redirect('index')
+    return redirect('login')
 
 def contact_us(request):
     return render(request, 'contact-us.html')
@@ -76,6 +93,7 @@ def create_event(request, trip_id):
     else:
         form = EventForm()
     return render(request, 'itinerary/create_event.html', {'form': form})
+
 def edit_event(request, event_id):
     event - Event.objects.get(id=event_id)
     if request.method == 'POST':
@@ -89,4 +107,3 @@ def edit_event(request, event_id):
 
 def search(request):
     return render(request, 'search.html')
-
