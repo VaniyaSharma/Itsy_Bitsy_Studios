@@ -25,6 +25,9 @@
                                 <img src="{% static 'images/edit-icon.png' %}" alt="Edit">
                             </button>
                         </form>
+                        <a href="{% url 'delete_event' event.id %}">
+                            <img src="{% static 'images/delete-icon.png' %}" alt="Delete Event">
+                        </a>
                     </div>
                 {% endfor %}
         </div>

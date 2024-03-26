@@ -1,6 +1,13 @@
+html {
+  box-sizing: border-box;
+  font-family: "Roboto-bold", sans-serif;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
 h1 {
   font-family: "Roboto-bold", sans-serif;
-  margin: 25px;
+  margin-bottom: 25px;
   color: white;
 }
 
@@ -13,14 +20,14 @@ img {
 }
 
 body {
-  background: #4A6C7A;
+
+  background: #86ACAF;
 }
 
 .trip-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin: 25px;
 }
 
 .trip {
@@ -53,7 +60,8 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 25px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .day-box {
@@ -74,7 +82,7 @@ body {
 }
 
 .trip-subtitle {
-  margin: 25px;
+  margin-bottom: 25px;
   color: white;
 }
 .event-container {
@@ -87,7 +95,6 @@ body {
 }
 
 .add-event-button {
-  margin-left: 25px;
   margin-bottom: 25px;
   width: 100px;
   height: 30px;
@@ -96,6 +103,87 @@ body {
 }
 
 .go-back {
-  margin-left: 25px;
   color: #c1f1f8;
+}
+
+.create-trip-form {
+  max-width: 400px;
+  margin: 25px;
+  padding: 20px;
+  background: #D2CDCD;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.create-trip-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-trip-form label {
+  font-weight: bold;
+}
+
+.create-trip-form input[type="text"],
+.create-trip-form input[type="date"] {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.create-trip-button {
+  margin-top: 25px;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.create-event-form {
+  max-width: 400px;
+  margin: 25px;
+  padding: 20px;
+  background: #D2CDCD;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.create-event-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-event-form label {
+  font-weight: bold;
+}
+
+.create-event-form input[type="text"],
+.create-event-form input[type="time"],
+.create-event-form input[type="url"]{
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.create-event-form textarea {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.create-event-button {
+  margin-top: 25px;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }

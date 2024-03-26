@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="{% static 'itinerary.css' %}">
 
 <h1>Create Event for {{ trip.name }}</h1>
-
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create Event</button>
-</form>
+<div class="create-event-form">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="create-event-button" type="submit">Create Event</button>
+    </form>
+</div>
 {% endblock %}

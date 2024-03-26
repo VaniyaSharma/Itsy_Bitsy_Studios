@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="{% static 'itinerary.css' %}">
 
 <h1>Create New Trip</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create Trip</button>
-</form>
+<div class="create-trip-form">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="create-trip-button" type="submit">Create Trip</button>
+    </form>
+</div>
+
 {% endblock %}

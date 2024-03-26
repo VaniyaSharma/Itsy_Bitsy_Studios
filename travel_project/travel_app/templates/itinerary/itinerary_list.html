@@ -16,6 +16,9 @@
                         <p class="trip-duration"> {{ trip.start_date }} to {{ trip.end_date }}</p>
                     </div>
                     <a href="{% url 'trip_details' trip.id %}">TRIP DETAILS</a>
+                    <a href="{% url 'delete_trip' trip.id %}">
+                        <img src="{% static 'images/delete-icon.png' %}" alt="Delete Trip">
+                    </a>
                 </div>
             {% endfor %}
         </ul>

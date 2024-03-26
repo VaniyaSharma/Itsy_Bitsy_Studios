@@ -1,4 +1,3 @@
-
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -101,7 +100,6 @@ def trip_details(request, trip_id):
         days.append({'number': day_number, 'date': trip.start_date + timedelta(days=day_number - 1), 'events': events})
     return render(request, 'itinerary/trip_details.html', {'trip': trip, 'days': days})
 
-
 @login_required(login_url='login')
 def create_trip(request):
     if request.method == 'POST':
@@ -115,6 +113,13 @@ def create_trip(request):
         form = TripForm()
     return render(request, 'itinerary/create_trip.html', {'form': form})
 
+def delete_trip(request, trip_id):
+    trip = Trip.objects.get(id=trip_id)
+    if request.method == 'POST':
+        trip.delete()
+        return redirect('itinerary_list')
+
+    return render(request, 'itinerary/delete_trip.html', {'trip': trip})
 
 @login_required(login_url='login')
 def create_event(request, trip_id):
@@ -144,6 +149,13 @@ def edit_event(request, event_id):
         form = EventForm(trip=trip, instance=event)
     return render(request, 'itinerary/edit_event.html', {'form': form, 'event': event, 'trip': trip})
 
+def delete_event(request, event_id):
+    event = Event.objects.get(id=event_id)
+    if request.method == 'POST':
+        event.delete()
+        return redirect('trip_details', trip_id=event.trip.id)
+
+    return render(request, 'itinerary/delete_event.html', {'event': event})
 
 def search(request):
     return render(request, 'search.html')
