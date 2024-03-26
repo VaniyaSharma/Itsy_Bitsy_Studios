@@ -1,22 +1,18 @@
-<<<<<<< HEAD
+
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404
-=======
 
 from django.shortcuts import render, redirect
->>>>>>> 217f0c5d850d2dd5beabf7df1786ef5075e179fd
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from datetime import timedelta
-<<<<<<< HEAD
 from django.db import models
 from .models import Trip, Event, Location
-=======
+
 
 from .models import Trip, Event
->>>>>>> 217f0c5d850d2dd5beabf7df1786ef5075e179fd
 from .forms import TripForm, EventForm, CreateUserForm
 from django.core.mail import EmailMessage
 from django.conf import settings
