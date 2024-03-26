@@ -25,21 +25,22 @@
             </div>
             <div class="col card-container">
                 <div class = "card card1">
-                    <h5>Create an Account</h5>
+                    <h5>Already have an account? Need to create one?</h5>
                     <p><a href="{% url 'sign-up' %}">Sign Up Here</a></p>
+                    <p><a href="{% url 'login' %}">Login Here</a></p>
                 </div>
                 <div class = "card card2">
-                    <h5>Already have an Account</h5>
-                    <p><a href="{% url 'login' %}">Login Here</a></p>
+                    <h5>Search Destinations</h5>
+                    <p><a href="{% url 'search' %}">Search</a></p>
                 </div>
                 <div class = "card card3">
                     <h5>About Us</h5>
                     <p><a href="{% url 'aboutus' %}">Get to know us more.</a></p>
                 </div>
                  <div class = "card card4">
-                    <h5>Featured Content</h5>
-                    <p>Showcase some featured content, products, or services here.
-            Add images, text, and links to engage visitors.</p>                </div>
+                    <h5>Itinerary</h5>
+                    <p><a href="{% url 'itinerary_list' %}">create your trip</a></p>
+                 </div>
                 </div>
         </div>
     </main>
