@@ -104,6 +104,10 @@ def trip_details(request, trip_id):
 
 @login_required(login_url='login')
 def create_trip(request):
+    initial_data = {}
+    property_value = request.GET.get('property_value')
+    if property_value:
+        initial_data['location'] = Location.objects.get(name=property_value)
     if request.method == 'POST':
         form = TripForm(request.POST)
         if form.is_valid():
@@ -112,9 +116,8 @@ def create_trip(request):
             trip.save()
             return redirect('itinerary_list')
     else:
-        form = TripForm()
+        form = TripForm(initial=initial_data)
     return render(request, 'itinerary/create_trip.html', {'form': form})
-
 
 @login_required(login_url='login')
 def create_event(request, trip_id):

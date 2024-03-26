@@ -26,7 +26,7 @@
                         <div class="l-details">
                             <h2>{{ location.name }}</h2>
                             <h3>{{ location.description }}</h3>
-                            <button type="button">Add to Itinerary</button>
+                            <a href="{% url 'create_trip' %}?property_value={{ location.name }}" class="button-link">Add</a>
                         </div>
                     </div>
                 {% endfor %}
