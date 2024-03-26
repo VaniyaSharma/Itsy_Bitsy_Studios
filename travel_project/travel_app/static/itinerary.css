@@ -1,15 +1,90 @@
+html {
+  box-sizing: border-box;
+  font-family: "Roboto-bold", sans-serif;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
 h1 {
   font-family: "Roboto-bold", sans-serif;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.trip-duration {
+  color: #cd5b45;
 }
 
 img {
   width: 25px;
 }
 
-.day-container {
+body {
 
+  background: #86ACAF;
 }
 
+.trip-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.trip {
+  display: inline-block;
+  background: white;
+  width: 200px;
+  height: 100px;
+  border: 1px solid #CCC;
+  padding: 15px;
+  margin-right: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.trip-info {
+  margin-bottom: 20px;
+}
+
+.create-new-trip {
+  width: 100px;
+  height: 100px;
+  margin: 25px;
+}
+
+.create-new-trip:hover {
+  opacity: 0.7;
+}
+
+.day-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.day-box {
+  width: 700px;
+  height: 300px;
+  background: #D2CDCD;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.day-title {
+  background: #9E9E9E;
+  padding: 10px
+}
+
+.trip-subtitle {
+  margin-bottom: 25px;
+  color: white;
+}
 .event-container {
   display: flex;
   align-items: center;
@@ -19,3 +94,96 @@ img {
   margin-right: 10px;
 }
 
+.add-event-button {
+  margin-bottom: 25px;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.go-back {
+  color: #c1f1f8;
+}
+
+.create-trip-form {
+  max-width: 400px;
+  margin: 25px;
+  padding: 20px;
+  background: #D2CDCD;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.create-trip-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-trip-form label {
+  font-weight: bold;
+}
+
+.create-trip-form input[type="text"],
+.create-trip-form input[type="date"] {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.create-trip-button {
+  margin-top: 25px;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.create-event-form {
+  max-width: 400px;
+  margin: 25px;
+  padding: 20px;
+  background: #D2CDCD;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.create-event-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-event-form label {
+  font-weight: bold;
+}
+
+.create-event-form input[type="text"],
+.create-event-form input[type="time"],
+.create-event-form input[type="url"]{
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.create-event-form textarea {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.create-event-button {
+  margin-top: 25px;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}

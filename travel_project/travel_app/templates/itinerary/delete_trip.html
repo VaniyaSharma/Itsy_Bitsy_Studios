@@ -1,0 +1,18 @@
+{% extends 'head-foot.html' %}
+
+{% block title %} Trip Itinerary | Tripsee {% endblock %}
+
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'itinerary.css' %}">
+
+<h1>Delete Trip</h1>
+<p>Are you sure you want to delete "{{ trip.name }}"?</p>
+<div class="delete-trip-form">
+    <form action="{% url 'delete_trip' trip.id %}" method="post">
+        {% csrf_token %}
+        <button class="delete-trip-button" type="submit">Delete</button>
+        <a href="{% url 'itinerary_list' %}">Cancel</a>
+    </form>
+</div>
+{% endblock %}

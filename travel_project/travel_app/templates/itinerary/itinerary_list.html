@@ -6,11 +6,25 @@
 {% load static %}
     <link rel="stylesheet" href="{% static 'itinerary.css' %}">
 
-    <h1>My Trips</h1>
-    <ul>
-        {% for trip in trips %}
-            <li><a href="{% url 'trip_details' trip.id %}">{{ trip.name }}</a></li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'create_trip' %}">Create New Trip</a>
+    <h1>{{ request.user }}'s Trips</h1>
+    <div class="trip-container">
+        <ul>
+            {% for trip in trips %}
+                <div class="trip">
+                    <div class="trip-info">
+                        <h3> {{ trip.name }} </h3>
+                        <p class="trip-duration"> {{ trip.start_date }} to {{ trip.end_date }}</p>
+                    </div>
+                    <a href="{% url 'trip_details' trip.id %}">TRIP DETAILS</a>
+                    <a href="{% url 'delete_trip' trip.id %}">
+                        <img src="{% static 'images/delete-icon.png' %}" alt="Delete Trip">
+                    </a>
+                </div>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'create_trip' %}">
+            <img class="create-new-trip" src="{% static 'images/add-icon.png' %}" alt="Create New Trip">
+        </a>
+    </div>
+
 {% endblock %}

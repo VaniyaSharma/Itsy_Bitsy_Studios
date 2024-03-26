@@ -7,24 +7,30 @@
     <link rel="stylesheet" href="{% static 'itinerary.css' %}">
 
 <h1>{{ trip.name }}</h1>
-<p>Duration: {{ trip.start_date }} to {{ trip.end_date }}</p>
-
+<h3 class="trip-subtitle">{{ trip.start_date }} to {{ trip.end_date }}</h3>
+<form action="{% url 'create_event' trip.id %}">
+    <button type="submit" class="add-event-button">Add Event</button>
+</form>
+<a class="go-back" href="{% url 'itinerary_list' %}" class="go-back">Go Back to Trip List!</a>
 
 {% for day in days %}
     <div class="day-container">
-      <h2>Day {{ day.number }}: {{ day.date }}</h2>
-        {% for event in day.events %}
-            <div class="event-container">
-                <p class="event-details">{{ event.event_title }} - {{ event.time }}</p>
-                <form action="{% url 'edit_event' event.id %}" method="get">
-                    <button type="submit">
-                        <img src="{% static 'images/edit-icon.png' %}" alt="Edit">
-                    </button>
-                </form>
-            </div>
-        {% endfor %}
+        <div class="day-box">
+            <h2 class="day-title">Day {{ day.number }}: {{ day.date }}</h2>
+                {% for event in day.events %}
+                    <div class="event-container">
+                        <p class="event-details">{{ event.event_title }} - {{ event.time }}</p>
+                        <form action="{% url 'edit_event' event.id %}" method="get">
+                            <button type="submit">
+                                <img src="{% static 'images/edit-icon.png' %}" alt="Edit">
+                            </button>
+                        </form>
+                        <a href="{% url 'delete_event' event.id %}">
+                            <img src="{% static 'images/delete-icon.png' %}" alt="Delete Event">
+                        </a>
+                    </div>
+                {% endfor %}
+        </div>
     </div>
 {% endfor %}
-<a href="{% url 'create_event' trip.id %}">Add Event</a><br>
-<a href="{% url 'itinerary_list' %}" class="go-back">Go Back to Trip List!</a>
 {% endblock %}
