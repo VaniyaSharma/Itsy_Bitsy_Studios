@@ -11,8 +11,9 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
+        <input type="hidden" name="location" value="{{ form.initial.location }}">
         <button class="create-trip-button" type="submit">Create Trip</button>
     </form>
 </div>
-
 {% endblock %}
+

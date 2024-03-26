@@ -10,17 +10,14 @@ from datetime import timedelta
 from django.db import models
 from .models import Trip, Event, Location
 
-
 from .models import Trip, Event
 from .forms import TripForm, EventForm, CreateUserForm
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
 
-
 def index(request):
     return render(request, 'index.html')
-
 
 def user_sign_up(request):
     form = CreateUserForm()
@@ -30,17 +27,25 @@ def user_sign_up(request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for ' + user)
+            email = form.cleaned_data.get('email')
+            messages.success(request, 'Hi ' + user + '! '+ 'your account was created! Please check your email for confirmationa and login link!')
 
-            return redirect('login')
+            template = render_to_string('registration/email.html', {'name': user})
+
+            email = EmailMessage(
+                'Thank you for registering with Tripsee!',
+                template,
+                settings.EMAIL_HOST_USER,
+                [email],
+            )
+            email.fail_silently = False
+            email.send()
+
+            return redirect('index')
 
     context = {'form': form}
 
     return render(request, "registration/sign-up.html", context)
-
-
-
-
 
 def user_login(request):
     if request.method == 'POST':
@@ -52,17 +57,6 @@ def user_login(request):
         if user is not None:
             login(request, user)
 
-            template = render_to_string('registration/email.html', {'name': request.user.username})
-
-            email = EmailMessage(
-                'Thank you for registering with Tripsee!',
-                template,
-                settings.EMAIL_HOST_USER,
-                [request.user.email],
-            )
-            email.fail_silently = False
-            email.send()
-
             return redirect('index')
 
         else:
@@ -71,25 +65,20 @@ def user_login(request):
 
     return render(request, "registration/login.html")
 
-
 def user_logout(request):
     logout(request)
     return redirect('login')
 
-
 def contact_us(request):
     return render(request, 'contact-us.html')
 
-
 def about_us(request):
     return render(request, 'aboutus.html')
-
 
 @login_required(login_url='login')
 def itinerary_list(request):
     trips = Trip.objects.filter(user=request.user)
     return render(request, 'itinerary/itinerary_list.html', {'trips': trips})
-
 
 @login_required(login_url='login')
 def trip_details(request, trip_id):
@@ -102,6 +91,10 @@ def trip_details(request, trip_id):
 
 @login_required(login_url='login')
 def create_trip(request):
+    initial_data = {}
+    property_value = request.GET.get('property_value')
+    if property_value:
+        initial_data['location'] = Location.objects.get(name=property_value)
     if request.method == 'POST':
         form = TripForm(request.POST)
         if form.is_valid():
@@ -110,7 +103,7 @@ def create_trip(request):
             trip.save()
             return redirect('itinerary_list')
     else:
-        form = TripForm()
+        form = TripForm(initial=initial_data)
     return render(request, 'itinerary/create_trip.html', {'form': form})
 
 def delete_trip(request, trip_id):
@@ -134,7 +127,6 @@ def create_event(request, trip_id):
     else:
         form = EventForm(trip=trip)
     return render(request, 'itinerary/create_event.html', {'form': form})
-
 
 @login_required(login_url='login')
 def edit_event(request, event_id):
