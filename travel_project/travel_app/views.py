@@ -99,6 +99,8 @@ def create_trip(request):
         form = TripForm(request.POST)
         if form.is_valid():
             trip = form.save(commit=False)
+            if 'location' in request.POST:
+                trip.location = request.POST['location']
             trip.user = request.user
             trip.save()
             return redirect('itinerary_list')
