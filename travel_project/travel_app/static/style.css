@@ -44,16 +44,16 @@ button {
 }
 .card-container{
     flex-basis: 50%;
-    display: flex; /* Add display flex to align items */
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    justify-content: center; /* Center align items horizontally */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
     width: 240px;
     height: 280px;
-    display: flex; /* Align items vertically */
-    flex-direction: column; /* Stack items vertically */
+    display: flex;
+    flex-direction: column;
     border-radius: 10px;
     padding: 15px 25px;
     box-sizing: border-box;
@@ -80,7 +80,7 @@ button {
 }
 
 h5{
-    font-size: 30px ;
+    font-size: 25px ;
     color: #25393d;
     text-shadow: #25393d;
 }

@@ -6,6 +6,7 @@
 
 .navbar{
     height: 18%;
+    padding-bottom: 18px;
     display: flex;
     align-items: center;
 }
