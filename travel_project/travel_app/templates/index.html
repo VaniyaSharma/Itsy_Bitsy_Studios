@@ -9,6 +9,24 @@
     <!-- Main Content -->
     <main>
 
+        {% for message in messages %}
+				<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+					<strong>Message:</strong> {{ message }}
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="closeAlert(this)">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				{% endfor %}
+
+				<script>
+					function closeAlert(element) {
+						// Find the parent alert div and remove it from the DOM
+						var alertDiv = element.closest('.alert');
+						alertDiv.remove();
+					}
+				</script>
+
+
 
          {% if user.is_authenticated %}
         <h3>Hello {{first_name}}!</h3>

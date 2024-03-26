@@ -31,9 +31,21 @@ def user_sign_up(request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for ' + user)
+            email = form.cleaned_data.get('email')
+            messages.success(request, 'Hi ' + user + '! '+ 'your account was created! Please check your email for confirmationa and login link!')
 
-            return redirect('login')
+            template = render_to_string('registration/email.html', {'name': user})
+
+            email = EmailMessage(
+                'Thank you for registering with Tripsee!',
+                template,
+                settings.EMAIL_HOST_USER,
+                [email],
+            )
+            email.fail_silently = False
+            email.send()
+
+            return redirect('index')
 
     context = {'form': form}
 
@@ -52,17 +64,6 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-
-            template = render_to_string('registration/email.html', {'name': request.user.username})
-
-            email = EmailMessage(
-                'Thank you for registering with Tripsee!',
-                template,
-                settings.EMAIL_HOST_USER,
-                [request.user.email],
-            )
-            email.fail_silently = False
-            email.send()
 
             return redirect('index')
 
