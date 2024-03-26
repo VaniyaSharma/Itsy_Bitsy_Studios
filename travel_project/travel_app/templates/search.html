@@ -8,14 +8,33 @@
     <meta name="viewport" content="width=device-width, inital-scale=1.0">
     <title>Search Page</title>
      <link rel="stylesheet" href="{% static 'searchStyle.css' %}">
+     <script src="{% static 'searchScript.js' %}"></script>
 </head>
 
 <body>
-    <div class="container2">
-        <form action="https://www.google.com/search" method="get" class="search-bar">
-            <input type="text" placeholder="where to?" name="q">
-            <button type="submit"><img src="images/search.png"></button>
+    <section class="container2">
+        <form action="{% url 'search_location' %}" method="get" class="search-bar">
+            <input type="text" id="search-item" placeholder="where to?" name="query" onkeyup="search()">
+            <button type="submit"><img src="/static/images/search.png"></button>
         </form>
-    </div>
+
+        <div class="location-list" id="location-list">
+            {% if locations %}
+                {% for location in locations %}
+                    <div class="location">
+                        <img src="/static/images/search.png">
+                        <div class="l-details">
+                            <h2>{{ location.name }}</h2>
+                            <h3>{{ location.description }}</h3>
+                            <button type="button">Add to Itinerary</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No locations found.</p>
+            {% endif %}
+        </div>
+    </section>
+
 </body>
 {% endblock %}
