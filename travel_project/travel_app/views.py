@@ -47,6 +47,7 @@ def user_sign_up(request):
 
     return render(request, "registration/sign-up.html", context)
 
+# user registeration tutorial taken from : https://www.youtube.com/@DennisIvy
 def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
